@@ -25,7 +25,7 @@ function listFavourites() {
 	for (var i in favourites) {
 		song = songsDetails(parseInt(favourites[i])-1)
 		favouritesCardContainer.innerHTML += `<div class="music-card">
-											    <a href="/FinalMusic/player.html?songs=${id}"><img src="${song.img}" alt=""></a>
+											    <a href="/FinalMusic/player.html?songs=${id}" target="_blank"><img src="${song.img}" alt=""></a>
 											    <p>${song.name}</p>
 											</div>`
 		id++
@@ -54,7 +54,10 @@ function ListAll() {
 	listFavourites()
 	listUserPlaylists()
 }
+<<<<<<< HEAD
 ListAll()
+=======
+>>>>>>> e1ed3189fa46219e7b41d675f02c1e1e5e989262
 interval = setInterval(ListAll, 1000)
 var modal = document.getElementById("myModal");
 
@@ -83,4 +86,3 @@ function checkPlaylist() {
 		modal.style.display = "none";
 	}
 }
-console.log('test')
