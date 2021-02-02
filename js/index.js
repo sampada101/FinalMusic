@@ -21,12 +21,14 @@ function listFavourites() {
 	var favouritesCardContainer = document.getElementById('myFavourites')
 	favouritesCardContainer.innerHTML = ""
 	favourites = JSON.parse(localStorage.getItem('favourites'));
+	var id=1
 	for (var i in favourites) {
 		song = songsDetails(parseInt(favourites[i])-1)
 		favouritesCardContainer.innerHTML += `<div class="music-card">
-											    <a href="/playlist.html?type=f"><img src="${song.img}" alt=""></a>
+											    <a href="/FinalMusic/playlist.html?songs=${id}"><img src="${song.img}" alt=""></a>
 											    <p>${song.name}</p>
 											</div>`
+		id++
 	}
 	if(favourites.length == 0){
 		favouritesCardContainer.innerHTML += `<p class="empty plb-20">Add Songs to your favourites to see them here</p>`

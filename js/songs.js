@@ -26,6 +26,7 @@ const displaysongs = (songs) => {
                 <span>
                     <button><abbr title="Add to playlist">+</abbr></button>
                     <button onclick="changeIconColor(this)" class="${id} color-red"><abbr title="Add to favorites"><span class="fa fa-heart"></span></abbr></button>
+                    <button onclick="window.location.href='/FinalMusic/player.html?songs=${id}'"><abbr title="Play"><span class="fa fa-play"></span></abbr></button>
                 </span>
             </li>
         `
@@ -38,7 +39,7 @@ const displaysongs = (songs) => {
                     <span>
                         <button><abbr title="Add to playlist">+</abbr></button>
                         <button onclick="changeIconColor(this)" class="${id}"><abbr title="Add to favorites"><span class="fa fa-heart"></span></abbr></button>
-                        <button onclick="window.location.href='/player.html?songs=${id}'"><abbr title="Play"><span class="fa fa-play"></span></abbr></button>
+                        <button onclick="window.location.href='/FinalMusic/player.html?songs=${id}'"><abbr title="Play"><span class="fa fa-play"></span></abbr></button>
                     </span>
                 </li>
             `
