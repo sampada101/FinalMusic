@@ -25,7 +25,7 @@ function listFavourites() {
 	for (var i in favourites) {
 		song = songsDetails(parseInt(favourites[i])-1)
 		favouritesCardContainer.innerHTML += `<div class="music-card">
-											    <a href="/FinalMusic/songs.html?songs=${id}"><img src="${song.img}" alt=""></a>
+											    <a href="/FinalMusic/player.html?songs=${id}"><img src="${song.img}" alt=""></a>
 											    <p>${song.name}</p>
 											</div>`
 		id++
