@@ -54,10 +54,7 @@ function ListAll() {
 	listFavourites()
 	listUserPlaylists()
 }
-<<<<<<< HEAD
 ListAll()
-=======
->>>>>>> e1ed3189fa46219e7b41d675f02c1e1e5e989262
 interval = setInterval(ListAll, 1000)
 var modal = document.getElementById("myModal");
 
