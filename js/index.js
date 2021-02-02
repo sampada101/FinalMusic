@@ -54,7 +54,8 @@ function ListAll() {
 	listFavourites()
 	listUserPlaylists()
 }
-interval = setInterval(ListAll, 100)
+ListAll()
+interval = setInterval(ListAll, 1000)
 var modal = document.getElementById("myModal");
 
 var btn = document.getElementById("createBtn");
