@@ -82,3 +82,4 @@ function checkPlaylist() {
 		modal.style.display = "none";
 	}
 }
+console.log('test')
