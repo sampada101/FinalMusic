@@ -4,7 +4,7 @@ function listReadyMade() {
 	readyMade = JSON.parse(localStorage.getItem('readyMade'));
 	for (var i in readyMade) {
 		playlistCardContainer.innerHTML += `<div class="music-card">
-											    <a href="/playlist.html?type=r&id=${parseInt(i)+1}"><img src="${readyMade[i].img}" alt=""></a>
+											    <a href="/playlist.html?type=r&id=${parseInt(i)+1}" target="_blank"><img src="${readyMade[i].img}" alt=""></a>
 											    <p>${readyMade[i].name}</p>
 											</div>`
 	}
@@ -41,7 +41,7 @@ function listUserPlaylists() {
 	if (playlists.length > 0) {
 		for (var i in playlists) {
 			UserPlaylistsContainer.innerHTML += `<div class="music-card">
-												    <a href="/playlist.html?type=user&id=${parseInt(i)+1}"><img src="img/userplaylist.jpg" alt=""></a>
+												    <a href="/playlist.html?type=user&id=${parseInt(i)+1}" target="_blank"><img src="img/userplaylist.jpg" alt=""></a>
 												    <p>${playlists[i].name}</p>
 												</div>`
 		}
