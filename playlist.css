@@ -1,0 +1,241 @@
+    body {
+      background: #181818;
+      font-family: 'Roboto', sans-serif;
+    }
+     body a {
+       color: #aaa;
+    }
+    .playlistAdd{
+      text-decoration: none;
+      border-style: none;
+    }
+
+     body a:hover {
+       color: #c8c8c8;
+    }
+     .content {
+       display: flex;
+       flex-flow: row wrap;
+    }
+     .content_middle {
+       width: 100%;
+    }
+     @media (max-width: 1400px) {
+       .content_middle {
+         width: 100%;
+      }
+    }
+     @media (max-width: 768px) {
+       .content_middle {
+         width: 100%;
+      }
+    }
+     .artist {
+       height: 617px;
+       overflow-y: scroll;
+    }
+     .artist_content {
+       padding: 15px;
+    }
+     .artist_content .overview {
+       display: flex;
+       flex-flow: row wrap;
+    }
+     @media (max-width: 768px) {
+       .artist {
+         overflow-y: auto;
+      }
+    }
+     .tracks {
+       display: flex;
+       flex-flow: column wrap;
+       margin-bottom: 15px;
+    }
+     .tracks_heading {
+       color: #aaa;
+       height: 42px;
+       display: flex;
+       flex-flow: row wrap;
+       align-items: center;
+    }
+     .tracks_heading_number {
+       margin-left: 10px;
+       font-style: italic;
+    }
+     .tracks_heading_title {
+       margin-left: 70px;
+       width: 45%;
+       text-transform: uppercase;
+       letter-spacing: 1px;
+    }
+     .tracks_heading_length {
+       margin-left: auto;
+       font-size: 20px;
+    }
+     .tracks .track {
+       border-top: 1px solid #282828;
+       height: 42px;
+       display: flex;
+       flex-flow: row wrap;
+       align-items: center;
+       padding: 15px 10px;
+    }
+     .tracks .track:hover {
+       background: #282828;
+    }
+     .tracks .track:last-child {
+       border-bottom: 1px solid #282828;
+    }
+     .tracks .track_art img {
+       width: 42px;
+       height: 42px;
+    }
+     .tracks .track_number {
+       margin-left: 10px;
+       color: #aaa;
+       width: 12px;
+    }
+     .tracks .track_title {
+       width: 45%;
+       margin-left: 30px;
+       color: #fff;
+    }
+     .tracks .track_explicit .label {
+       color: white;
+       text-transform: capitalize;
+    }
+     .tracks .track_plays {
+       color: #aaa;
+       margin-left: auto;
+       padding-right: 10px;
+    }
+     .tracks .track_length {
+       margin-left: auto;
+       color: #aaa;
+    }
+     @media (max-width: 1200px) {
+       .tracks_heading_title {
+         width: auto;
+      }
+       .tracks .track_title {
+         width: auto !important;
+      }
+       .tracks .track_explicit {
+         display: none;
+      }
+    }
+     .overview_albums {
+       width: 100%;
+       margin-top: 30px;
+    }
+     .album_info {
+       margin-bottom: 15px;
+       display: flex;
+       flex-flow: row wrap;
+    }
+     .album_info_art img {
+       width: 135px;
+       height: 135px;
+       border-radius: 10px;
+    }
+     .album_info_meta {
+       width: calc(100% - 150px);
+       margin-left: 15px;
+       display: flex;
+       flex-flow: column wrap;
+    }
+     .album_info_meta .album_name {
+       color: #fff;
+       font-size: 30px;
+       font-weight: 100;
+    }
+     .album_info_meta .album_actions .save {
+       padding-left: 30px;
+       padding-right: 30px;
+       margin-right: 10px;
+       background-color: #1ed760;
+       border-color: #1ed760;
+       font-weight: bolder;
+       color: black;
+    }
+     .album_info_meta .album_actions .save:hover {
+       border-color: white;
+    }
+     .album .track_title {
+       width: 70%;
+    }
+.search-bar input[type=text] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('img/searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.color-red{
+    color: red;
+}
+.search-bar input[type=text]:focus {
+  width: 100%;
+}
+     @media (max-width: 1200px) {
+       .album .tracks .track {
+         height: auto;
+         padding: 20px 10px;
+      }
+    }
+     ::-webkit-scrollbar {
+       width: 8px;
+    }
+     ::-webkit-scrollbar-thumb {
+       border-radius: 4px;
+       background: #373737;
+    }
+     .h1 {
+       font-size: 36px;
+    }
+     .red {
+       color: #fc615c;
+    }
+     .red:hover {
+       color: #fb302a;
+    }
+     .yellow {
+       color: #fdbe41;
+    }
+     .yellow:hover {
+       color: #fcad0f;
+    }
+     .green {
+       color: #34c94a;
+    }
+     .green:hover {
+       color: #2aa03b;
+    }
+     button {
+       border-radius: 20px;
+       border: none;
+       padding: 5px 15px;
+       text-transform: uppercase;
+       letter-spacing: 1px;
+       font-size: 11px;
+       outline: none;
+    }
+     button:hover {
+       cursor: pointer;
+    }
+     .button-light {
+       background: none;
+       color: #c8c8c8;
+       border: 1px solid #c8c8c8;
+    }
+     .button-light:hover {
+       border-color: #fff;
+       color: #fff;
+    }

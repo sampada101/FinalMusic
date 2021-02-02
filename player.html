@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Flat music player</title>
+    <link rel="stylesheet" type="text/css" href="player.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="music-player-container">
+
+        <div class="music-player">
+            <div class="player-content-container">
+                <div class="songs">
+                    <span id="present">1</span><span>/</span><span id="total">5</span>
+                </div>
+                <h1 class="artist-name" id="artist">Incubus</h1>
+                <h2 class="album-title" id="title">Make Yourself</h2>
+                <div class="music-player-controls">
+                    <div class="f-right">
+                        <div class="duration">
+                           <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()">
+                        </div>
+                        <div class="volume">
+                            <input type="number" min="0" max="100" id="volume_show" value="80" onchange="checkVolumeValue()">
+                            <i class="fa fa-volume-up" aria-hidden="true" onclick="mute_sound()" id="volume_icon"></i>
+                        </div>
+                    </div>
+                    <div class="control-back" id="prev" onclick="previous_song()"></div>
+                    <div class="control-play" id="play" onclick="playPause()"></div>
+                    <div class="control-forwards" id="next" onclick="next_song()"></div>
+                    <button id="auto" onclick="autoplay_switch()">Auto play <i class="fa fa-circle-o-notch" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="album">
+            <div class="album-art" id="track-picture"></div>
+            <div class="vinyl"></div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+</body>
+</html>
