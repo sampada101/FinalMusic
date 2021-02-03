@@ -42,7 +42,7 @@ Playing_song = false;
 //create a audio Element
 track = document.createElement('audio');
 
-ids = getQueryVariable("songs")
+ids = getQueryInt("songs")
 //All songs list
 All_song = songsList(ids)
 document.getElementById('total').innerHTML = ids.length

@@ -59,11 +59,8 @@ h1 {
     min-height: 80px;
     min-width: 100px;
 }
-.color-red{
-    color: red;
-}
 
-input[type=text] {
+#searchWrapper input[type=text] {
   width: 100%;
   border: 2px solid #ccc;
   border-radius: 4px;

@@ -45,7 +45,7 @@ function getSongFromId(id) {
 		return noSuchSong
 	}
 }
-function getQueryVariable(variable){ 
+function getQueryInt(variable){ 
   var query = window.location.search.substring(1); 
   var vars = query.split("&"); 
   for (var i=0;i<vars.length;i++)
@@ -64,11 +64,30 @@ function getQueryVariable(variable){
   }
   return [noSuchSong]
 }
+function getQueryVariable(variable){ 
+  var query = window.location.search.substring(1); 
+  var vars = query.split("&"); 
+  for (var i=0;i<vars.length;i++)
+  { 
+    var pair = vars[i].split("="); 
+    if (pair[0] == variable)
+    { 
+      result = pair[1];
+      return result
+    } 
+  }
+  return false
+}
 function addToPlaylist(name, id, remove=false) {
 	playlists = JSON.parse(localStorage.getItem('playlists'));
 	for (var i in playlists) {
 		if (playlists[i].name == name){
 			if (!remove) {
+				for (var x in playlists[i].songs) {
+					if (playlists[i].songs[x] == id) {
+						return false
+					}
+				}
 				playlists[i].songs.push(id)
 			}else{
 				for (var x in playlists[i].songs) {
@@ -116,17 +135,14 @@ function createPlaylist(name){
     	if (obj.classList[i]=="color-red") {
     		if (!inFavourites(obj.classList[0])) {
     			addToFavourites(obj.classList[0])
-    			console.log("added")
     		}
     	}
     	else if (obj.classList.length <= 1){
     		if (inFavourites(obj.classList[0])) {
     			addToFavourites(obj.classList[0], remove=true);
-    			console.log("removed", obj.classList[0])
     		}
     	}
     }
-    console.log(JSON.parse(localStorage.getItem('favourites')))
   }
 function inFavourites(id) {
     var userFavourites = JSON.parse(localStorage.getItem('favourites'));
@@ -145,4 +161,32 @@ function inPlaylist(name) {
         }
     }
     return false
+}
+function closeAlert(name){
+	document.getElementsByClassName(`alert ${name}`)[0].style.display = "none"
+}
+function getPlaylistDetailsId(id){
+	var AllPlaylist = JSON.parse(localStorage.getItem('playlists'))
+	if (id > 0 && id <= AllPlaylist.length) {
+		return AllPlaylist[id-1]
+	}else{
+		return false
+	}
+}
+function getPlaylistDetailsTypeId(id, type="r"){
+	if (type == "u") {
+		var AllPlaylist = JSON.parse(localStorage.getItem('playlists'))
+		if (id > 0 && id <= AllPlaylist.length) {
+			return AllPlaylist[id-1]
+		}else{
+			return false
+		}
+	}else{
+		readyMade = JSON.parse(localStorage.getItem('readyMade'))
+		if (id > 0 && id <= readyMade.length) {
+			return readyMade[id-1]
+		}else{
+			return false
+		}
+	}
 }
