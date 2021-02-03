@@ -1,9 +1,4 @@
-readyMade = [
-	{	name: "BollyWood",
-		songs:[1,2,3,4,5],
-		img: "img/bollywood.jpg"
-	}
-]
+
 readyMade = [
 	{	name: "Prateek Kuhad Hits",
 		songs:[1,2,3,4],
@@ -17,11 +12,26 @@ readyMade = [
 		songs:[13,14,15,16,17,18,19,21,22],
 		img: "img/happy.jpg"
 	},
-	{	name: "Happy Vibes",
-		songs:[23,24,25,26,27,28,29],
+	{	name: "Mood Booster",
+		songs:[54,55,56,57,58,59,60,61,62,63,64],
 		img: "img/happyvibes.jpg"
-	}
+    },
+    {	name: "Dance Vibes",
+		songs:[13,14,46],
+        img: "img/dance.jpg"
+    },
+    {	
+        name: "Nepali Vibe Check",
+		songs:[31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,48,49],
+		img: "img/nepali.jpg"
+    },
+    {	
+        name: "Mood",
+		songs:[74,75,76,77,78,79],
+		img: "img/mood.jpg"
+    }
 ]
+userPlaylistImages = ["img/userplaylist.jpg", "img/3929641.jpg", "img/3907166.jpg", "img/3509256.jpg"]
 noSuchSong = {
 	name : "NO SUCH SONG EXISTS",
 	path : "music/songs/noSuchSong.mp3",
@@ -142,7 +152,7 @@ function createPlaylist(name){
 			return false
 		}
 	}
-	playlist.push({"name":name,songs:[]})
+	playlist.push({"name":name,songs:[], img: userPlaylistImages[Math.floor(Math.random() * userPlaylistImages.length)]})
 	localStorage.setItem('playlists', JSON.stringify(playlist));
 
 	return true

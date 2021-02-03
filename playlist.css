@@ -168,6 +168,7 @@ body a:hover {
   width: 135px;
   height: 135px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .album_info_meta {

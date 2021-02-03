@@ -40,7 +40,6 @@ function listFavourites() {
 		id++
 	}
 	if(favourites.length == 0){
-		console.log(favourites, favourites.length)
 		favouritesCardContainer.innerHTML += `<p class="empty plb-20">Add Songs to your favourites to see them here</p>`
 	}
 }
@@ -52,7 +51,7 @@ function listUserPlaylists() {
 		for (var i in playlists) {
 			UserPlaylistsContainer.innerHTML += `
 												<div class="album">
-								                  <img src="img/userplaylist.jpg">
+								                  <img src="${playlists[i].img}">
 								                  <div class="album-info">
 								                     <h2>${playlists[i].name}</h2>
 								                     <a href="playlist.html?id=${parseInt(i)+1}">PLAY NOW</a>

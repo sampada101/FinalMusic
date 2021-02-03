@@ -1,6 +1,9 @@
 .color-red{
     color: red;
 }
+.color-white{
+    color: white;
+}
 .modal {
   display: none;
   position: fixed;
@@ -121,6 +124,15 @@
   text-align: center;
   font-size: x-large;
   font-weight: bold;
+}
+button{
+    border-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;  
+}
+button:focus{
+    outline: none;
 }
 @media screen and (max-width: 768px) {
   .modal-content{

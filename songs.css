@@ -73,15 +73,6 @@ h1 {
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
-button{
-    border-style: none;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: transparent;  
-}
-button:focus{
-    outline: none;
-}
 abbr{
     text-decoration: none;
 }

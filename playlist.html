@@ -4,6 +4,7 @@
       <title>Playlist</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="playlist.css">
+      <link rel="stylesheet" type="text/css" href="main.css">
    </head>
    <body>
       <section class="content">
@@ -12,13 +13,13 @@
                <div class="album">
                   <div class="album_info">
                      <div class="album_info_art">
-                        <img src="img/music.jpg"/>
+                        <img id="album_img" src="img/userplaylist.jpg">
                      </div>
                      <div class="album_info_meta">
                         <div class="album_name" id="album_name">Album Name</div>
                         <p style="color: white" id="album_desc"></p>
                         <div class="album_actions">
-                           <button class="button-light save">Play</button>
+                           <button class="button-light save" id="playbtn">Play</button>
                         </div>
                      </div>
                   </div>
@@ -40,6 +41,7 @@
          </div>
       </section>
       <script type="text/javascript" src="js/main.js"></script>
+      <script type="text/javascript" src="js/plalistAdd.js"></script>
       <script type="text/javascript" src="js/playlist.js"></script>
    </body>
 </html>
