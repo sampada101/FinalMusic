@@ -34,7 +34,7 @@ function listFavourites() {
 							                  <div class="album-info">
 							                     <h2>${song.name}</h2>
 							                     <h4>${song.singer}</h4>
-							                     <a href="player.html?songs=${id}" target="_blank">PLAY NOW</a>
+							                     <a href="player.html?songs=${i}" target="_blank">PLAY NOW</a>
 							                  </div>
 							               </div>`
 		id++
