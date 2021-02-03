@@ -1,6 +1,8 @@
 function listSongs(){
-	for (var i in playlist.songs) {
-		console.log(getSongFromId(playlist.songs[i]))
+	if (playlistType == "u"){
+		listUserMadePlaylists()
+	}else{
+		listReadymade()
 	}
 }
 function getPlaylistType() {
@@ -19,6 +21,11 @@ function getPlaylistType() {
 		playlist = getPlaylistDetailsTypeId(getQueryVariable('id'), type="u")
 		if (!playlist) {window.location.href="index.html"}
 		return "u"
+	}
+}
+function listReadymade() {
+	for (var i in playlist.songs) {
+		console.log(getSongFromId(playlist.songs[i]))
 	}
 }
 playlistType = getPlaylistType()

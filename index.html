@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>My Music</title>
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-      <link rel="stylesheet" href="spotify.css">
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Music Player</title>
+      <link
+         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+         rel="stylesheet">
+      <link rel="stylesheet" href="index.css">
       <link rel="stylesheet" href="main.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    </head>
    <body>
       <div id="myModal" class="modal">
@@ -29,51 +32,62 @@
             </div>
          </div>
       </div>
-      <aside class="sidenav">
-         <div class="logo pb-50">
-            <a href="#">
-               <h1 class="mainLogo"><span><img src="img/logo.png"></span> My Music</h1>
-            </a>
-         </div>
-         <div class="menulink pb-50">
-            <a><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="songs.html"><i class="fas fa-search"></i> <span>Search</span> </a>
-            <a href="#myFavourites"><i class="fas fa-book"></i> <span> Your Library</span></a>
-         </div>
-         <div class="buttons">
-            <a href="#"><button type="button" class="btn btn-light" id="createBtn">Create Playlist</button></a>
-         </div>
-      </aside>
-      <main>
-         <div class="container-flex ptb-30 plb-20">
-            <div class=" toplist">
-               <ul class="list-inline">
-                  <li><a href="#">Playlists</a></li>
+      <header>
+         <div class="header-container">
+            <div class="header-logo">
+               <img src="img/logo.jpg" />
+            </div>
+            <nav class="nav-desktop">
+               <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="songs.html">Search</a></li>
+                  <li><a href="#User-Playlists">Your Library</a></li>
+                  <li role="separator"></li>
                </ul>
+            </nav>
+         </div>
+      </header>
+      <!-- HERO -->
+      <section class="hero">
+         <div class="hero-container">
+            <div class="hero-content">
+               <h1 class="hero-title">Let your heart sing.</h1>
+               <button class="hero-button" id="createBtn">Make your own playlist</button>
             </div>
          </div>
-         <div class="title plb-20">
-            <h1><strong>Readymade Playlists</strong></h1>
-         </div>
-         </div>
-         <div class=" container-flex text-center" id="Readymade-playlists">
-         </div>
-         <div class="container-flex">
-            <div class="title plb-20">
-               <h1><strong>Your Favrouites</strong></h1>
+      </section>
+      <!-- ALBUMS -->
+      <section class="albums">
+         <div class="albums-container">
+            <div class="albums-content pt5">
+               <h2><span class="fa fa-line-chart"></span>&nbsp;TRENDING ALBUMS&nbsp;<span class="fa fa-line-chart"></span></h2>
+            </div>
+            <div class="albums-cards-container" id="Readymade-playlists">
+               
             </div>
          </div>
-         <div class="container-flex text-center" id="myFavourites">
-         </div>
-         <div class="container-flex">
-            <div class="title plb-20">
-               <h1><strong>Your Playlist</strong></h1>
+      </section>
+      <section class="albums">
+         <div class="albums-container">
+            <div class="albums-content">
+               <h2><span class="fa fa-headphones"></span>&nbsp;PLAYLIST&nbsp;<span class="fa fa-headphones">&nbsp;&nbsp;</span></h2>
+            </div>
+            <div class="albums-cards-container" id="User-Playlists">
+               
             </div>
          </div>
-         <div class="container-flex text-center" id="User-Playlists">
+      </section>
+      <section class="albums">
+         <div class="albums-container">
+            <div class="albums-content">
+               <h2><span class="fa fa-heart"></span>&nbsp;YOUR FAVROUITES&nbsp;<span class="fa fa-heart"></span></h2>
+            </div>
+            <div class="albums-cards-container" id="myFavourites">
+               
+            </div>
          </div>
-      </main>
+      </section>
       <script type="text/javascript" src="js/main.js"></script>
-      <script type="text/javascript" src="js/index.js"></script> 
+      <script type="text/javascript" src="js/index.js"></script>
    </body>
 </html>

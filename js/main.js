@@ -4,6 +4,24 @@ readyMade = [
 		img: "img/bollywood.jpg"
 	}
 ]
+readyMade = [
+	{	name: "Prateek Kuhad Hits",
+		songs:[1,2,3,4],
+		img: "img/prateek-kuhad.jpg"
+	},
+	{	name: "Soothing Vibes",
+		songs:[5,6,7,8,9,10,11,12],
+		img: "img/soothing.jpg"
+	},
+	{	name: "Fun On The Road",
+		songs:[13,14,15,16,17,18,19,21,22],
+		img: "img/happy.jpg"
+	},
+	{	name: "Happy Vibes",
+		songs:[23,24,25,26,27,28,29],
+		img: "img/happyvibes.jpg"
+	}
+]
 noSuchSong = {
 	name : "NO SUCH SONG EXISTS",
 	path : "music/songs/noSuchSong.mp3",

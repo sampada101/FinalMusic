@@ -3,10 +3,14 @@ function listReadyMade() {
 	playlistCardContainer.innerHTML = ""
 	readyMade = JSON.parse(localStorage.getItem('readyMade'));
 	for (var i in readyMade) {
-		playlistCardContainer.innerHTML += `<div class="music-card">
-											    <a href="playlist.html?type=r&id=${parseInt(i)+1}" target="_blank"><img src="${readyMade[i].img}" alt=""></a>
-											    <p>${readyMade[i].name}</p>
-											</div>`
+		playlistCardContainer.innerHTML += `
+											<div class="album">
+							                  <img src="${readyMade[i].img}">
+							                  <div class="album-info">
+							                     <h2>${readyMade[i].name}</h2>
+							                     <a href="playlist.html?type=r&id=${parseInt(i)+1}">PLAY NOW</a>
+							                  </div>
+							               </div>`
 	}
 }
 function songsDetails(id) {
@@ -24,10 +28,15 @@ function listFavourites() {
 	var id=1
 	for (var i in favourites) {
 		song = songsDetails(parseInt(favourites[i])-1)
-		favouritesCardContainer.innerHTML += `<div class="music-card">
-											    <a href="player.html?songs=${id}" target="_blank"><img src="${song.img}" alt=""></a>
-											    <p>${song.name}</p>
-											</div>`
+		favouritesCardContainer.innerHTML += `
+											<div class="album">
+							                  <img src="${song.img}">
+							                  <div class="album-info">
+							                     <h2>${song.name}</h2>
+							                     <h4>${song.singer}</h4>
+							                     <a href="player.html?songs=${id}" target="_blank">PLAY NOW</a>
+							                  </div>
+							               </div>`
 		id++
 	}
 	if(favourites.length == 0){
@@ -40,10 +49,14 @@ function listUserPlaylists() {
 	playlists =  JSON.parse(localStorage.getItem('playlists'));
 	if (playlists.length > 0) {
 		for (var i in playlists) {
-			UserPlaylistsContainer.innerHTML += `<div class="music-card">
-												    <a href="playlist.html?id=${parseInt(i)+1}" target="_blank"><img src="img/userplaylist.jpg" alt=""></a>
-												    <p>${playlists[i].name}</p>
-												</div>`
+			UserPlaylistsContainer.innerHTML += `
+												<div class="album">
+								                  <img src="img/userplaylist.jpg">
+								                  <div class="album-info">
+								                     <h2>${playlists[i].name}</h2>
+								                     <a href="playlist.html?id=${parseInt(i)+1}">PLAY NOW</a>
+								                  </div>
+								               </div>`
 		}
 	}else{
 		UserPlaylistsContainer.innerHTML += `<p class="empty plb-20">Create playlists to see them here</p>`
