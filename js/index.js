@@ -34,12 +34,13 @@ function listFavourites() {
 							                  <div class="album-info">
 							                     <h2>${song.name}</h2>
 							                     <h4>${song.singer}</h4>
-							                     <a href="player.html?songs=${i}" target="_blank">PLAY NOW</a>
+							                     <a href="player.html?songs=${parseInt(favourites[i])}" target="_blank">PLAY NOW</a>
 							                  </div>
 							               </div>`
 		id++
 	}
 	if(favourites.length == 0){
+		console.log(favourites, favourites.length)
 		favouritesCardContainer.innerHTML += `<p class="empty plb-20">Add Songs to your favourites to see them here</p>`
 	}
 }
