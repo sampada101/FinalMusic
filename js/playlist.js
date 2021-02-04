@@ -123,11 +123,8 @@ function listUserMadePlaylists() {
 	                               <div class="del-container">
 	                                 <h1>Delete Playlist</h1>
 	                                 <p>Are you sure you want to delete your Playlist?</p>
-	                               
-	                                 <div class="clearfix">
-	                                   <button type="button" onclick="document.getElementById('del-playlist').style.display='none'" class="del-cancelbtn">Cancel</button>
-	                                   <button type="button" onclick="deleteWholePlaylist()" class="del-deletebtn">Delete</button>
-	                                 </div>
+	                                  <button type="button" onclick="document.getElementById('del-playlist').style.display='none'" class="del-cancelbtn">Cancel</button>
+	                                  <button type="button" onclick="deleteWholePlaylist()" class="del-deletebtn">Delete</button>
 	                                 </div>
 	                              </div>
 	                           </div>
