@@ -227,3 +227,13 @@ function getSongIdFromSong(songDetails){
 	}
 	return false
 }
+function deletePlaylist(name) {
+	var allplaylists = JSON.parse(localStorage.getItem('playlists'))
+	for (var i in allplaylists) {
+		if (allplaylists[i].name == name){
+			allplaylists.splice(i, 1)
+			console.log("found")
+		}
+	}
+	localStorage.setItem('playlists', JSON.stringify(allplaylists))
+}

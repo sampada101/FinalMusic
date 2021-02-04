@@ -116,6 +116,22 @@ function listUserMadePlaylists() {
 	var tracks = document.getElementsByClassName('tracks')[0]
 	var allPlaylists = ""
     var playlists =  JSON.parse(localStorage.getItem('playlists'));
+    var album_actions = document.getElementById('a_action')
+    album_actions.innerHTML += `<button class="button-red delete" id="deletebtn" onclick="document.getElementById('del-playlist').style.display='block'">Delete</button>
+	                           <div id="del-playlist" class="del">
+	                             <div class="del-content">
+	                               <div class="del-container">
+	                                 <h1>Delete Playlist</h1>
+	                                 <p>Are you sure you want to delete your Playlist?</p>
+	                               
+	                                 <div class="clearfix">
+	                                   <button type="button" onclick="document.getElementById('del-playlist').style.display='none'" class="del-cancelbtn">Cancel</button>
+	                                   <button type="button" onclick="deleteWholePlaylist()" class="del-deletebtn">Delete</button>
+	                                 </div>
+	                                 </div>
+	                              </div>
+	                           </div>
+    `
     if (playlists.length > 1) {
         for (var i in playlists) {
             if (playlists[i].name != playlist.name) {
@@ -239,5 +255,10 @@ playBTN.onclick = function playPlaylistSongs() {
 
 function deleteFromPlaylist(obj) {
 	addToPlaylist(playlist.name, obj.classList[0], remove=true)
+	window.location.reload()
+}
+function deleteWholePlaylist() {
+	console.log(playlist)
+	deletePlaylist(playlist.name)
 	window.location.reload()
 }
