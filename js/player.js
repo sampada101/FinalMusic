@@ -45,6 +45,9 @@ if (!getQueryVariable("songs")) {
 	getPlaylistType()
 	ids = playlist.songs
 	All_song = songsList(ids)
+	if (ids.length == 0) {
+		present.innerHTML = 0
+	}
 }else{
 	ids = getQueryInt("songs")
 	All_song = songsList(ids)
@@ -79,7 +82,9 @@ function load_track(index_no){
 
 	timer = setInterval(range_slider ,1000);
 	total.innerHTML = All_song.length;
-	present.innerHTML = index_no + 1;
+	if (ids.length > 0) {
+		present.innerHTML = index_no + 1;
+	}
 }
 
 load_track(index_no);
