@@ -218,3 +218,12 @@ function getPlaylistDetailsTypeId(id, type="r"){
 		}
 	}
 }
+function getSongIdFromSong(songDetails){
+	var allSongsApp = JSON.parse(localStorage.getItem('allSongs'))
+	for (var i in allSongsApp) {
+		if (allSongsApp[i].name==songDetails.name) {
+			return parseInt(i)+1
+		}
+	}
+	return false
+}

@@ -41,37 +41,71 @@ function listReadymade() {
     }
 	for (var i in playlist.songs) {
 		var song = getSongFromId(playlist.songs[i])
-		tracks.innerHTML += `<div class="track">
-	                           <div class="track_number">${parseInt(i)+1}</div>
-	                           <div class="track_title">${song.name}</div>
-	                           <div class="track_explicit">
-	                              <span class="label">${song.singer}</span>
-	                           </div>
-	                           <div class="track_length"><button class="modal-${playlist.songs[i]} color-white" onclick="popupAddPlaylist(this)">+</button></div>
-	                           <div class="track_length"><button onclick="changeFavsColor(this)" class="color-white ${playlist.songs[i]}"><i class="fa fa-heart favs" style="font-size:12px"></i></button></div>
-	                           <div id="myModal" class="modal modal-${playlist.songs[i]}">
-	                              <div class="modal-content">
-	                                 <div class="modal-header">
-	                                    <span class="close modal-${playlist.songs[i]}">&times;</span>
-	                                    <h2>Add To Playlist</h2>
-	                                 </div>
-	                                 <div class="modal-body">
-	                                    <select id="playlist-${playlist.songs[i]}" name="playlist-${playlist.songs[i]}">
-	                                    	${allPlaylists}
-	                                     </select>
-	                                    <div class="alert noSuchPlaylist alert-${playlist.songs[i]}">
-	                                       <span class="closebtn" onclick="closeAlert('alert-${playlist.songs[i]}')">&times;</span>  
-	                                       <strong>ERROR!</strong>&nbsp;No Such Playlist Exists
-	                                    </div>
-	                                    <div class="alert playlistAdded alert-${playlist.songs[i]}">
-	                                       <span class="closebtn" onclick="closeAlert('playlistAdded alert-${playlist.songs[i]}')">&times;</span>  
-	                                       <strong>Added!</strong>
-	                                    </div>
-	                                    <button onclick="checkAddPlaylist('playlist-${playlist.songs[i]}', ${playlist.songs[i]})">SUBMIT</button>
-	                                 </div>
-	                              </div>
-	                           </div>
-	                        </div>`
+		if (!inFavourites(playlist.songs[i])) {
+			tracks.innerHTML += `<div class="track">
+		                           <div class="track_number">${parseInt(i)+1}</div>
+		                           <div class="track_title">${song.name}</div>
+		                           <div class="track_explicit">
+		                              <span class="label">${song.singer}</span>
+		                           </div>
+		                           <div class="track_length"><button class="modal-${playlist.songs[i]} color-white" onclick="popupAddPlaylist(this)">+</button></div>
+		                           <div class="track_length"><button onclick="changeFavsColor(this)" class="color-white ${playlist.songs[i]}"><i class="fa fa-heart favs" style="font-size:12px"></i></button></div>
+		                           <div id="myModal" class="modal modal-${playlist.songs[i]}">
+		                              <div class="modal-content">
+		                                 <div class="modal-header">
+		                                    <span class="close modal-${playlist.songs[i]}">&times;</span>
+		                                    <h2>Add To Playlist</h2>
+		                                 </div>
+		                                 <div class="modal-body">
+		                                    <select id="playlist-${playlist.songs[i]}" name="playlist-${playlist.songs[i]}">
+		                                    	${allPlaylists}
+		                                     </select>
+		                                    <div class="alert noSuchPlaylist alert-${playlist.songs[i]}">
+		                                       <span class="closebtn" onclick="closeAlert('alert-${playlist.songs[i]}')">&times;</span>  
+		                                       <strong>ERROR!</strong>&nbsp;No Such Playlist Exists
+		                                    </div>
+		                                    <div class="alert playlistAdded alert-${playlist.songs[i]}">
+		                                       <span class="closebtn" onclick="closeAlert('playlistAdded alert-${playlist.songs[i]}')">&times;</span>  
+		                                       <strong>Added!</strong>
+		                                    </div>
+		                                    <button onclick="checkAddPlaylist('playlist-${playlist.songs[i]}', ${playlist.songs[i]})">SUBMIT</button>
+		                                 </div>
+		                              </div>
+		                           </div>
+		                        </div>`
+		}else{
+			tracks.innerHTML += `<div class="track">
+		                           <div class="track_number">${parseInt(i)+1}</div>
+		                           <div class="track_title">${song.name}</div>
+		                           <div class="track_explicit">
+		                              <span class="label">${song.singer}</span>
+		                           </div>
+		                           <div class="track_length"><button class="modal-${playlist.songs[i]} color-white" onclick="popupAddPlaylist(this)">+</button></div>
+		                           <div class="track_length"><button onclick="changeFavsColor(this)" class="color-red ${playlist.songs[i]}"><i class="fa fa-heart favs" style="font-size:12px"></i></button></div>
+		                           <div id="myModal" class="modal modal-${playlist.songs[i]}">
+		                              <div class="modal-content">
+		                                 <div class="modal-header">
+		                                    <span class="close modal-${playlist.songs[i]}">&times;</span>
+		                                    <h2>Add To Playlist</h2>
+		                                 </div>
+		                                 <div class="modal-body">
+		                                    <select id="playlist-${playlist.songs[i]}" name="playlist-${playlist.songs[i]}">
+		                                    	${allPlaylists}
+		                                     </select>
+		                                    <div class="alert noSuchPlaylist alert-${playlist.songs[i]}">
+		                                       <span class="closebtn" onclick="closeAlert('alert-${playlist.songs[i]}')">&times;</span>  
+		                                       <strong>ERROR!</strong>&nbsp;No Such Playlist Exists
+		                                    </div>
+		                                    <div class="alert playlistAdded alert-${playlist.songs[i]}">
+		                                       <span class="closebtn" onclick="closeAlert('playlistAdded alert-${playlist.songs[i]}')">&times;</span>  
+		                                       <strong>Added!</strong>
+		                                    </div>
+		                                    <button onclick="checkAddPlaylist('playlist-${playlist.songs[i]}', ${playlist.songs[i]})">SUBMIT</button>
+		                                 </div>
+		                              </div>
+		                           </div>
+		                        </div>`
+		}
 	}
 }
 function listUserMadePlaylists() {
@@ -93,46 +127,89 @@ function listUserMadePlaylists() {
     }
     for (var i in playlist.songs) {
 		var song = getSongFromId(playlist.songs[i])
-		tracks.innerHTML += `
-	                        <div class="track">
-	                           <div class="track_number">${parseInt(i)+1}</div>
-	                           <div class="track_title">${song.name}</div>
-	                           <div class="track_explicit">
-	                              <span class="label">${song.singer}</span>
-	                           </div>
-	                           <div class="track_length">
-	                              <div class="dropdown">
-	                                 <i style="font-size:24px" class="fa">&#xf142;</i></i>
-	                                 <div class="dropdown-content">
-	                                    <a onclick="popupAddPlaylist(this)" class="modal-${playlist.songs[i]}">Add to Playlist</a>
-	                                    <a onclick="deleteFromPlaylist(this)" class="${playlist.songs[i]}">Delete From Playlist</a>
-	                                 </div>
-	                              </div>
-	                           </div>
-	                           <div class="track_length"><i class="fa fa-heart favs" style="font-size:12px" onclick="changeIconColor(this)"></i></div>
-		                        <div id="myModal" class="modal modal-${playlist.songs[i]}">
-	                              <div class="modal-content">
-	                                 <div class="modal-header">
-	                                    <span class="close modal-${playlist.songs[i]}">&times;</span>
-	                                    <h2>Add To Playlist</h2>
-	                                 </div>
-	                                 <div class="modal-body">
-	                                    <select id="playlist-${playlist.songs[i]}" name="playlist-${playlist.songs[i]}">
-	                                    	${allPlaylists}
-	                                     </select>
-	                                    <div class="alert noSuchPlaylist alert-${playlist.songs[i]}">
-	                                       <span class="closebtn" onclick="closeAlert('alert-${playlist.songs[i]}')">&times;</span>  
-	                                       <strong>ERROR!</strong>&nbsp;No Such Playlist Exists
-	                                    </div>
-	                                    <div class="alert playlistAdded alert-${playlist.songs[i]}">
-	                                       <span class="closebtn" onclick="closeAlert('playlistAdded alert-${playlist.songs[i]}')">&times;</span>  
-	                                       <strong>Added!</strong>
-	                                    </div>
-	                                    <button onclick="checkAddPlaylist('playlist-${playlist.songs[i]}', ${playlist.songs[i]})">SUBMIT</button>
-	                                 </div>
-	                              </div>
-	                           </div>
-	                        </div>`
+		if (inFavourites(playlist.songs[i])) {
+			tracks.innerHTML += `
+		                        <div class="track">
+		                           <div class="track_number">${parseInt(i)+1}</div>
+		                           <div class="track_title">${song.name}</div>
+		                           <div class="track_explicit">
+		                              <span class="label">${song.singer}</span>
+		                           </div>
+		                           <div class="track_length">
+		                              <div class="dropdown">
+		                                 <i style="font-size:24px" class="fa">&#xf142;</i></i>
+		                                 <div class="dropdown-content">
+		                                    <a onclick="popupAddPlaylist(this)" class="modal-${playlist.songs[i]}">Add to Playlist</a>
+		                                    <a onclick="deleteFromPlaylist(this)" class="${playlist.songs[i]}">Delete From Playlist</a>
+		                                 </div>
+		                              </div>
+		                           </div>
+		                           <div class="track_length"><button onclick="changeFavsColor(this)" class="color-red ${playlist.songs[i]}"><i class="fa fa-heart favs" style="font-size:12px"></i></button></div>
+			                        <div id="myModal" class="modal modal-${playlist.songs[i]}">
+		                              <div class="modal-content">
+		                                 <div class="modal-header">
+		                                    <span class="close modal-${playlist.songs[i]}">&times;</span>
+		                                    <h2>Add To Playlist</h2>
+		                                 </div>
+		                                 <div class="modal-body">
+		                                    <select id="playlist-${playlist.songs[i]}" name="playlist-${playlist.songs[i]}">
+		                                    	${allPlaylists}
+		                                     </select>
+		                                    <div class="alert noSuchPlaylist alert-${playlist.songs[i]}">
+		                                       <span class="closebtn" onclick="closeAlert('alert-${playlist.songs[i]}')">&times;</span>  
+		                                       <strong>ERROR!</strong>&nbsp;No Such Playlist Exists
+		                                    </div>
+		                                    <div class="alert playlistAdded alert-${playlist.songs[i]}">
+		                                       <span class="closebtn" onclick="closeAlert('playlistAdded alert-${playlist.songs[i]}')">&times;</span>  
+		                                       <strong>Added!</strong>
+		                                    </div>
+		                                    <button onclick="checkAddPlaylist('playlist-${playlist.songs[i]}', ${playlist.songs[i]})">SUBMIT</button>
+		                                 </div>
+		                              </div>
+		                           </div>
+		                        </div>`
+		}else{
+			tracks.innerHTML += `
+		                        <div class="track">
+		                           <div class="track_number">${parseInt(i)+1}</div>
+		                           <div class="track_title">${song.name}</div>
+		                           <div class="track_explicit">
+		                              <span class="label">${song.singer}</span>
+		                           </div>
+		                           <div class="track_length">
+		                              <div class="dropdown">
+		                                 <i style="font-size:24px" class="fa">&#xf142;</i></i>
+		                                 <div class="dropdown-content">
+		                                    <a onclick="popupAddPlaylist(this)" class="modal-${playlist.songs[i]}">Add to Playlist</a>
+		                                    <a onclick="deleteFromPlaylist(this)" class="${playlist.songs[i]}">Delete From Playlist</a>
+		                                 </div>
+		                              </div>
+		                           </div>
+		                           <div class="track_length"><button onclick="changeFavsColor(this)" class="color-white ${playlist.songs[i]}"><i class="fa fa-heart favs" style="font-size:12px"></i></button></div>
+			                        <div id="myModal" class="modal modal-${playlist.songs[i]}">
+		                              <div class="modal-content">
+		                                 <div class="modal-header">
+		                                    <span class="close modal-${playlist.songs[i]}">&times;</span>
+		                                    <h2>Add To Playlist</h2>
+		                                 </div>
+		                                 <div class="modal-body">
+		                                    <select id="playlist-${playlist.songs[i]}" name="playlist-${playlist.songs[i]}">
+		                                    	${allPlaylists}
+		                                     </select>
+		                                    <div class="alert noSuchPlaylist alert-${playlist.songs[i]}">
+		                                       <span class="closebtn" onclick="closeAlert('alert-${playlist.songs[i]}')">&times;</span>  
+		                                       <strong>ERROR!</strong>&nbsp;No Such Playlist Exists
+		                                    </div>
+		                                    <div class="alert playlistAdded alert-${playlist.songs[i]}">
+		                                       <span class="closebtn" onclick="closeAlert('playlistAdded alert-${playlist.songs[i]}')">&times;</span>  
+		                                       <strong>Added!</strong>
+		                                    </div>
+		                                    <button onclick="checkAddPlaylist('playlist-${playlist.songs[i]}', ${playlist.songs[i]})">SUBMIT</button>
+		                                 </div>
+		                              </div>
+		                           </div>
+		                        </div>`
+		}
 	}
 	if (playlist.songs.length <= 0) {
 		tracks.innerHTML += "<h1 class='color-white'>NO SONGS FOUND! ADD SONGS TO PLAYLIST TO SEE THEM HERE</h1>"

@@ -200,6 +200,11 @@ function range_slider(){
 		       checkIndex()
 		       load_track(index_no);
 		       playsong();
+           }else{
+           	if (Playing_song) {
+           		playPause(end=true)
+           		Playing_song = false
+           	}
            }
 	    }
      }

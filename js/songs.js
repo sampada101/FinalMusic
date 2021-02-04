@@ -14,7 +14,6 @@ searchBar.addEventListener('keyup', (e) => {
 });
 const displaysongs = (songs) => {
     songsLists.innerHTML = ""
-    var id = 1
     var allPlaylists = ""
     var playlists =  JSON.parse(localStorage.getItem('playlists'));
     if (playlists.length > 0) {
@@ -26,6 +25,7 @@ const displaysongs = (songs) => {
         allPlaylists+= `<option value="no-playlist-added">No Playlist Added</option>`
     }
     for (var i in songs) {
+      var id = getSongIdFromSong(songs[i])
         var song = songs[i]
         if (inFavourites(id)) {
             songsLists.innerHTML += `
@@ -98,7 +98,6 @@ const displaysongs = (songs) => {
                 </li>
             `
         }
-        id++
     }
 };
 displaysongs(allSongs)
