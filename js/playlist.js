@@ -252,10 +252,10 @@ playBTN.onclick = function playPlaylistSongs() {
 
 function deleteFromPlaylist(obj) {
 	addToPlaylist(playlist.name, obj.classList[0], remove=true)
-	window.location.href = "index.html"
+	window.location.reload()
 }
 function deleteWholePlaylist() {
 	console.log(playlist)
 	deletePlaylist(playlist.name)
-	window.location.reload()
+	window.location.href = "index.html"
 }
