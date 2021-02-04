@@ -41,10 +41,17 @@ Playing_song = false;
 
 //create a audio Element
 track = document.createElement('audio');
+if (!getQueryVariable("songs")) {
+	getPlaylistType()
+	ids = playlist.songs
+	All_song = songsList(ids)
+}else{
+	ids = getQueryInt("songs")
+	All_song = songsList(ids)
+}
 
-ids = getQueryInt("songs")
 //All songs list
-All_song = songsList(ids)
+
 document.getElementById('total').innerHTML = ids.length
 
 // All functions
@@ -54,7 +61,6 @@ document.getElementById('total').innerHTML = ids.length
 function load_track(index_no){
 	clearInterval(timer);
 	reset_slider();
-	console.log(index_no)
 	if (All_song[index_no] === undefined){
 		track.src = noSuchSong.path;
 		title.innerHTML = noSuchSong.name;	
@@ -224,5 +230,24 @@ function checkVolumeValue(){
 	}else{
 		document.getElementById('volume_show').value = 80;
 		volume_change()
+	}
+}
+function getPlaylistType() {
+	id = getQueryVariable('id')
+	var validTypes = ['r', 'u']
+	var type = getQueryVariable('type')
+	if (type != false && type != "" && type != "u") {
+		for (var i in validTypes) {
+			if (validTypes[i] == type) {
+				playlist = getPlaylistDetailsTypeId(getQueryVariable('id'))
+				if (!playlist) {window.location.href="index.html"}
+				return validTypes[i]
+			}
+		}
+		window.location.href="index.html"
+	}else{
+		playlist = getPlaylistDetailsTypeId(getQueryVariable('id'), type="u")
+		if (!playlist) {window.location.href="index.html"}
+		return "u"
 	}
 }
